@@ -1,3 +1,4 @@
+<%= render 'nav_bar'%>
 <p id="notice"><%= notice %></p>
 
 <style>
@@ -28,7 +29,7 @@ tr {
       <% if admin_signed_in? %>
         <a class="btn btn-secondary"<%= link_to 'Edit', edit_project_path(blog) %></a>
         <a class="btn btn-secondary"<%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <%end%>
+      <% end %>
     </p>
   </div>
 <% end %>

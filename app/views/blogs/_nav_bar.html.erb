@@ -1,1 +1,5 @@
-<%= link_to 'New Blog', new_blog_path %>
+<% if admin_signed_in? %>
+    <%= link_to 'New Blog', new_blog_path %>
+<% else %>
+    <%= button_to "Sign In", href="/admins/sign_in", class: "btn btn-danger ml-3"%>
+<% end %>
