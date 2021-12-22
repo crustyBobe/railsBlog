@@ -1,37 +1,36 @@
-<%= render 'nav_bar'%>
 <p id="notice"><%= notice %></p>
+
+<%= render 'navbar'%>
 
 <style>
 
-h1 {
-  text-align: center;
-}
+h1 {text-align: center;}
 
-h3 {
-  text-align: center;
-}
+h3 {text-align: center;}
 
-tr {
-  text-align: center;
-}
+tr {text-align: center;}
+
+body {padding-top: 40px;}
 
 </style>
 
-<h1>Posts</h1>
-
-<% @blogs.each do |blog| %>
-  <div id='blog'>
-    <h3><%= blog.title %></h3>
-    <p><%= blog.description %></p>
-    <p>
-      <a class="btn btn-secondary"<%= link_to 'Show', blog%></a>
-
-      <% if admin_signed_in? %>
-        <a class="btn btn-secondary"<%= link_to 'Edit', edit_project_path(blog) %></a>
-        <a class="btn btn-secondary"<%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
-    </p>
+<body>
+  <div id='heading'>
+    <h1>Posts</h1>
   </div>
-<% end %>
+    <% @blogs.each do |blog| %>
+      <div id='blog'>
+        <h3><%= blog.title %></h3>
+        <p><%= blog.description %></p>
+        <p>
+          <a class="btn btn-secondary"<%= link_to 'Show', blog%></a>
 
+          <% if admin_signed_in? %>
+            <a class="btn btn-secondary"<%= link_to 'Edit', edit_blog_path(blog) %></a>
+            <a class="btn btn-secondary"<%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </p>
+      </div>
+    <% end %>
+</body>
 <%= render 'bottom_bar'%>

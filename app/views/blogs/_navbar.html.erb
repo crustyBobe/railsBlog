@@ -1,0 +1,11 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <%= link_to "Home", href="/", class: "btn btn-danger"%>
+    
+    <% if admin_signed_in? %>
+        <%= button_to "Log Out", destroy_admin_session_path, method: :delete, class: "btn btn-danger ml-3"%>
+        <%= link_to 'New Project', new_blog_path, class: "btn btn-danger ml-3"%>
+    <%end%>
+    <% if !admin_signed_in? %>
+        <%= button_to "Sign In", href="/admins/sign_in", class: "btn btn-danger ml-3"%>
+    <%end%>
+</nav>
