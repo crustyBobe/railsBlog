@@ -12,6 +12,15 @@ tr {text-align: center;}
 
 body {padding-top: 40px;}
 
+#blog {
+  width: 750px;
+  margin: auto;
+  border: 10px solid;
+  margin-top: 25px;
+  margin-bottom: 25px;
+
+}
+
 </style>
 
 <body>
@@ -21,14 +30,8 @@ body {padding-top: 40px;}
     <% @blogs.each do |blog| %>
       <div id='blog'>
         <h3><%= blog.title %></h3>
-        <p><%= blog.description %></p>
         <p>
           <a class="btn btn-secondary"<%= link_to 'Show', blog%></a>
-
-          <% if admin_signed_in? %>
-            <a class="btn btn-secondary"<%= link_to 'Edit', edit_blog_path(blog) %></a>
-            <a class="btn btn-secondary"<%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
         </p>
       </div>
     <% end %>

@@ -1,16 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
+<%= render 'navbar' %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @blog.description %>
-</p>
+<style>
 
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+h1 {text-align: center;}
 
+body {padding-top: 40px;}
+
+h1 {text-align: center;}
+
+#post{
+  text-align: center;
+  margin: auto;
+  width: 850px;
+}
+
+</style>
+
+<body>
+  <h1>
+    <%= @blog.title %>
+  </h1>
+
+  <% if admin_signed_in? %>
+    <h1>
+      <a class="btn btn-secondary"<%= link_to 'Edit', edit_blog_path(@blog) %></a>
+      <a class="btn btn-secondary"<%= link_to 'Destroy', @blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </h1>
+    <% end %>
+
+  <div id=post>
+    <p>
+      <%= @blog.description %>
+    </p>
+  </div>
+
+</body>
 <%= render 'bottom_bar'%>
