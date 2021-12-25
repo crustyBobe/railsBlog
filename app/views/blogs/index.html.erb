@@ -13,17 +13,21 @@ tr {text-align: center;}
 body {padding-top: 40px;}
 
 #blog {
-  width: 750px;
+  width: 850px;
   margin: auto;
   border: 10px solid;
   margin-top: 25px;
   margin-bottom: 25px;
+  background: #0743f2;
+}
 
+#blogs {
+  background: #a9965f;
 }
 
 </style>
 
-<body>
+<body id='blogs'>
   <div id='heading'>
     <h1>Posts</h1>
   </div>
@@ -32,8 +36,13 @@ body {padding-top: 40px;}
         <h3><%= blog.title %></h3>
         <p>
           <a class="btn btn-secondary"<%= link_to 'Show', blog%></a>
+
+          <% if admin_signed_in? %>
+            <a class="btn btn-secondary"<%=link_to 'Edit', edit_blog_path(blog)%></a>
+        <% end %>
         </p>
       </div>
     <% end %>
 </body>
+
 <%= render 'bottom_bar'%>
